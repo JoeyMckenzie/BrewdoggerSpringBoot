@@ -1,4 +1,4 @@
-package com.brewdogger.beer.service;
+package com.brewdogger.beer.service.impl;
 
 import com.brewdogger.beer.entity.Brewery;
 import com.brewdogger.beer.exception.BrewdoggerException;
@@ -7,6 +7,7 @@ import com.brewdogger.beer.helper.EntityPropertyHelper;
 import com.brewdogger.beer.helper.EntityUpdateHelper;
 import com.brewdogger.beer.model.BreweryRequest;
 import com.brewdogger.beer.repository.BreweryRepository;
+import com.brewdogger.beer.service.BreweryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
