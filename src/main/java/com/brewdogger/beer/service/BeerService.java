@@ -6,6 +6,9 @@ import com.brewdogger.beer.model.BeerStyle;
 
 import java.util.List;
 
+/**
+ * A beer service for handling CRUD operations
+ */
 public interface BeerService {
 
     Beer getBeerById(Long id);

@@ -1,6 +1,7 @@
 package com.brewdogger.beer.entity;
 
 import com.brewdogger.beer.model.BeerStyle;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -26,6 +27,11 @@ public class Beer {
     @Column(name = "beer_style")
     @Enumerated(EnumType.STRING)
     private BeerStyle beerStyle;
+
+    @JoinColumn(name = "brewery_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("beers")
+    private Brewery brewery;
 
     public Beer() { }
 
@@ -67,5 +73,17 @@ public class Beer {
 
     public void setBeerStyle(BeerStyle beerStyle) {
         this.beerStyle = beerStyle;
+    }
+
+    public void setIbu(Integer ibu) {
+        this.ibu = ibu;
+    }
+
+    public Brewery getBrewery() {
+        return brewery;
+    }
+
+    public void setBrewery(Brewery brewery) {
+        this.brewery = brewery;
     }
 }

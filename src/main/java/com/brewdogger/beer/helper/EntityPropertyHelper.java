@@ -11,6 +11,20 @@ public class EntityPropertyHelper {
 
     private static final Logger logger = LoggerFactory.getLogger(EntityPropertyHelper.class);
 
+    /**
+     * Entity mapping that validates only fields required to be updated.
+     *
+     * @param objectEntity Original entity contained in the database
+     * @param objectUpdates Request entity with updated values
+     * @throws IllegalAccessException Throws if property is not accessible
+     */
+    public void updateEntity(Object objectEntity, Object objectUpdates) throws IllegalAccessException {
+
+        var updatedProperties = getFields(objectUpdates);
+
+        setFields(objectEntity, updatedProperties);
+    }
+
     public HashMap<String, Object> getFields(Object objectToMapFrom) throws IllegalStateException {
 
         var properties = new HashMap<String, Object>();

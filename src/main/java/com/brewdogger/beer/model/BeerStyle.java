@@ -10,5 +10,6 @@ public enum BeerStyle {
     STOUT,
     PORTER,
     BLONDE,
-    RED_ALE
+    RED_ALE,
+    NEW_ENGLAND_IPA
 }
