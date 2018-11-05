@@ -6,7 +6,6 @@ import com.brewdogger.beer.entity.Brewery;
 import com.brewdogger.beer.model.BeerRequest;
 import com.brewdogger.beer.model.BrewdoggerUserRequest;
 import com.brewdogger.beer.model.BreweryRequest;
-import org.apache.catalina.User;
 
 public interface Mapper {
 
@@ -14,5 +13,6 @@ public interface Mapper {
 
     Brewery mapBreweryRequestToBrewery(BreweryRequest breweryRequest);
 
-    BrewdoggerUser mapUserRequestToUser(BrewdoggerUserRequest brewdoggerUserRequest);
+    BrewdoggerUser mapBrewdoggerUserRequestToBrewdoggerUser(BrewdoggerUserRequest brewdoggerUserRequest);
+
 }

@@ -3,6 +3,7 @@ package com.brewdogger.beer.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "BREWERIES")
@@ -21,6 +22,10 @@ public class Brewery {
 
     @Column(name = "state")
     private String state;
+
+    @OneToMany(mappedBy = "brewery", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("brewery")
+    private List<Beer> beers;
 
     public Brewery () {}
 
@@ -54,5 +59,13 @@ public class Brewery {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public List<Beer> getBeers() {
+        return beers;
+    }
+
+    public void setBeers(List<Beer> beers) {
+        this.beers = beers;
     }
 }

@@ -49,17 +49,17 @@ public class MapperImpl implements Mapper {
         return brewery;
     }
 
-    public BrewdoggerUser mapUserRequestToUser(BrewdoggerUserRequest brewdoggerUserRequest) {
+    public BrewdoggerUser mapBrewdoggerUserRequestToBrewdoggerUser(BrewdoggerUserRequest brewdoggerUserRequest) {
 
-        var user = new BrewdoggerUser();
-        var userRequestProperties = entityPropertyHelper.getFields(user);
+        var brewdoggerUser = new BrewdoggerUser();
+        var brewdoggerUserRequestProperties = entityPropertyHelper.getFields(brewdoggerUserRequest);
 
         try {
-            entityPropertyHelper.setFields(user, userRequestProperties);
+            entityPropertyHelper.setFields(brewdoggerUser, brewdoggerUserRequestProperties);
         } catch (IllegalAccessException iae) {
             logger.error("MapperImpl::map - Could not map fields for userRequest to user");
         }
 
-        return user;
+        return brewdoggerUser;
     }
 }

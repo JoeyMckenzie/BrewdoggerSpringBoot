@@ -16,8 +16,8 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = MapperImpl.class)
-public class MapperImplTest {
+@SpringBootTest(classes = Mapper.class)
+public class MapperTest {
 
     private BeerRequest beerRequest;
     private BreweryRequest breweryRequest;

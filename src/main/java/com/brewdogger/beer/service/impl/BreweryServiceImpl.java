@@ -4,7 +4,6 @@ import com.brewdogger.beer.entity.Brewery;
 import com.brewdogger.beer.exception.BrewdoggerException;
 import com.brewdogger.beer.exception.BreweryNotFoundException;
 import com.brewdogger.beer.helper.EntityPropertyHelper;
-import com.brewdogger.beer.helper.EntityUpdateHelper;
 import com.brewdogger.beer.model.BreweryRequest;
 import com.brewdogger.beer.repository.BreweryRepository;
 import com.brewdogger.beer.service.BreweryService;
@@ -22,9 +21,6 @@ public class BreweryServiceImpl implements BreweryService {
 
     @Autowired
     private BreweryRepository breweryRepository;
-
-    @Autowired
-    private EntityUpdateHelper entityUpdateHelper;
 
     @Autowired
     private EntityPropertyHelper entityPropertyHelper;
@@ -107,7 +103,7 @@ public class BreweryServiceImpl implements BreweryService {
         var breweryToUpdate = getBreweryById(id);
 
         try {
-            entityUpdateHelper.updateEntity(breweryToUpdate, updatedBrewery);
+            entityPropertyHelper.updateEntity(breweryToUpdate, updatedBrewery);
         } catch (IllegalAccessException e) {
             logger.error("BreweryServiceImpl::updateBrewery - Could not update properties for brewery with id " + id);
         }

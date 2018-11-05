@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @Repository
 public interface BeerRepository extends JpaRepository<Beer, Long> {
-
     @Query("select b from Beer as b where b.beerStyle = :beerStyle")
     Optional<List<Beer>> findByBeerStyle(@Param("beerStyle") BeerStyle beerStyle);
 }

@@ -1,5 +1,7 @@
 package com.brewdogger.beer.entity;
 
+import com.brewdogger.beer.model.UserRole;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +24,10 @@ public class BrewdoggerUser {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "user_role")
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole;
 
     public BrewdoggerUser() {}
 
